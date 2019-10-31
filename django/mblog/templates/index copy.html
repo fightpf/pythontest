@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        歡迎光臨我的部落格
+    </title>
+</head>
+<body>
+    <h1>歡迎光臨我的部落格</h1>
+    <hr>
+    {% for post in posts %}
+        <p style='font-family: 微軟正黑體;font-size: 16pt;font-weight: bold;'>
+            <a href='/post/{{post.slug}}'>{{post.title}}</a>
+<!--        {{post.title}}
+        </p>
+        <p style='font-family: 微軟正黑體;font-size: 10pt;letter-spacing: 1pt;'>
+{{post.body}}        
+        -->
+</p>
+    {% endfor %}
+    <hr>
+    <h3>現在時刻:{{ now }}</h3>
+    
+</body>
+</html>

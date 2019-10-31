@@ -1,0 +1,12 @@
+<!--post.html-->
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} - 這在幹嘛{% endblock %}
+{% block headmessage %}
+    <h3 style='font-family:微軟正黑體;'>{{post.title}}</h3>
+    <a style='font-family:微軟正黑體;'href='/'>回首頁</a>
+{% endblock %}
+{% block content %}
+    <p style='font-family:微軟正黑體;font-size:12pt;letter-spacing:2pt;'>
+        {{post.body}}</a>
+    </p>
+{% endblock %}
