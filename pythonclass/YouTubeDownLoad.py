@@ -13,8 +13,6 @@ def do_asksaveasfile():
     pytube.YouTube(video_link).streams.first().download(location)
     x.set('下載完成') 
 
-#print(f.composition(True)[0])
-#分子式f.empirical
 window=Tk()
 window.title("YouYueDownLoad")
 window.geometry("800x450")
@@ -41,6 +39,5 @@ save_file_botton=Button(window,
                 bg="#000000"
                 ).place(relx=0.5,rely=0.95,anchor="s")
                 
-              
 window.mainloop()
 
