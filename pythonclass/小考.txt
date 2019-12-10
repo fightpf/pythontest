@@ -1,0 +1,93 @@
+1.
+import re
+import time
+import math
+
+def changeTime(allTime):
+    day = 24*60*60
+    hour = 60*60
+    min = 60
+    if allTime > hour:
+        hours = divmod(allTime,hour)
+        return '%d hours, %s'%(int(hours[0]),changeTime(hours[1]))      
+    elif  allTime > day:
+        days = divmod(allTime,day)
+    else:
+        mins = divmod(allTime,min)
+        return "%d mins"%(int(mins[0]))
+
+
+mail=[]
+Usetime=[]
+accunt=[]
+realtime=[]
+
+data_str = 'J0RB8BMRQU@gmail.com,4699\nLEKUUWH7QG@gmail.com,3443\nED61NHVAKH@gmail.com,2436\nBLNJKE6MOT@gmail.com,700\nWX79DJ3GBX@gmail.com,4585\n89RNWHB29T@gmail.com,3502\nDBSDKRY0M5@gmail.com,5704\n1VCSTNN5DT@gmail.com,8859\nQJ5GSY0Y7O@gmail.com,5676\n8LI30OUMNO@gmail.com,2375\nZWRZ4E4QN8@gmail.com,3783\n2R2001VJRH@gmail.com,5272\nXR4Q2992I2@gmail.com,6403\nQ7S1VG75BQ@gmail.com,5316\nIBSNP0S0KG@gmail.com,320\nVCBMQ40FNN@gmail.com,7738\nQSHRIT977Q@gmail.com,9183\n5JGZSS2QPB@gmail.com,8964\nRL0U9FCRT9@gmail.com,4093\nJI8F4EY4CA@gmail.com,184\n5XKR544N7Q@gmail.com,5858\nOI278Z7NYZ@gmail.com,8980\nD389NLF4BC@gmail.com,9378\nIVP4KUWQ7U@gmail.com,3759\n1ET6L0BAC9@gmail.com,6997\n0S4QQBJFDL@gmail.com,8143\nGXG5SM11ZX@gmail.com,2580\n7HN1DMLO5B@gmail.com,5483\n5YORL6N7NR@gmail.com,3619\n7PM5UTQP2R@gmail.com,6578'
+mail=re.findall("[A-Za-z0-9._]+@[A-Za-z.]+[com|edu]", data_str)
+
+accunt = list(map(lambda x: x.split("@")[0], mail))
+#print(accunt)
+
+
+Usetime=re.findall("\,[0-9]+\\n", data_str)
+realtime=list(map(lambda x: changeTime(int(x.replace('\n','').replace(',',''))), Usetime))
+
+
+list(zip(accunt,realtime))
+
+
+2.
+enter = int(input("輸入一個數字："))
+
+def Fibonacci(max):
+    x=0
+    y=1
+    Fibonacci_list = [0,1]
+    while x+y < max:
+        z = x+y
+        x = y
+        y = z
+        Fibonacci_list.append(y)
+    return Fibonacci_list
+
+print(Fibonacci(enter))
+
+3.
+class Rectangle:
+    width=0
+    height=0 
+    def setw(self,x):
+        self.width=x
+        print(self.width)
+    def area(self,width,height):
+        #print(repr(width*height))
+        return width*height
+    
+class Student:
+    firstL=[]
+    secList=[]    
+    def calculate(self,firstL,secList):
+        a=Rectangle()        
+        return a.area(secList[0],secList[1])+a.area(firstL[0],firstL[1])
+
+lista=[2,4]
+listb=[5,6]
+
+f=Student()
+endcal=f.calculate(lista,listb)
+
+endcal
+
+4.from pandas.tools.plotting import scatter_matrix
+import pandas as pd
+from sklearn import datasets
+
+iris = datasets.load_iris()
+iris_data = pd.DataFrame(data=iris['data'],columns=iris['feature_names'])
+iris_data["target"] = iris['target']
+
+color_wheel = {1: "#0392cf", 
+               2: "#7bc043", 
+               3: "#ee4035"}
+colors = iris_data["target"].map(lambda x: color_wheel.get(x + 1))
+ax = pd.plotting.scatter_matrix(iris_data, color=colors, alpha=0.6, figsize=(15, 15), diagonal='hist')

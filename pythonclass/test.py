@@ -1,13 +1,21 @@
-import pytube
-from tkinter import filedialog as fd
+def calculate_average(*arg):
+    a=arg
+    sum=0
+    a=list(a)[0]
+    number_list=len(a)
+    for i in a:  
+        sum+=i #sum=sum+i
+    average=sum/number_list
+    return average 
+a=[1,2,3,4,5,6,7,8,9,20]
+a=calculate_average(a)
+print(a)
 
-video_link='https://www.youtube.com/watch?v=T1W0TLEit0Y'
-download_title=pytube.YouTube(video_link).title
-print(download_title,len(download_title))
-file = fd.asksaveasfile(mode='a',initialfile=download_title)
-print(file.name)
-location = file.name[0:len(file.name)-len(download_title)-4]
-print(location)
-#print(pytube.YouTube(video_link).streams.first))
-#.download(location)
+for i in [0,1,2,3,'4',5]:
+    try :
+        a=3
+        b=i
+        print(a+b)
+    except:
+        continue
 
